@@ -59,6 +59,12 @@ export default {
   },
   devServer: {
     contentBase: path.resolve("./dist"),
-    historyApiFallback: true
+    historyApiFallback: true,
+    proxy: {
+      "/api/*": {
+        target: "https://bangumi.moe/",
+        secure: true
+      }
+    }
   }
 };
