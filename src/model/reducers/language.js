@@ -1,5 +1,5 @@
-import {createReducer} from "../../helper/redux";
+import {handleAction} from "../../helper/redux";
 
-export default createReducer("language", (state, action) => (
+export default handleAction("language", (state, action) => (
   action.payload
 ), "en");

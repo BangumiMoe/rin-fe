@@ -15,13 +15,13 @@ export default {
       "history",
       "react",
       "react-dom",
-      "react-mixin",
       "react-intl",
       "react-router",
       "react-redux",
       "redux",
       "redux-thunk",
       "redux-promise",
+      "reduce-reducers",
       "flux-standard-action"
     ],
     app: "./index"
@@ -63,7 +63,7 @@ export default {
     proxy: {
       "/api/*": {
         target: "https://bangumi.moe/",
-        secure: true
+        secure: false
       }
     }
   }

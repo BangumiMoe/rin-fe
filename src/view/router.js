@@ -9,6 +9,8 @@ const history = createHistory();
 
 export default (
   <Router history={history}>
-    <Route path={routes.root} component={views.App}></Route>
+    <Route path={routes.root} component={views.App}>
+      <IndexRoute component={views.Home} />
+    </Route>
   </Router>
 );
