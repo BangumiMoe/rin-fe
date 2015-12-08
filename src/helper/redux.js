@@ -16,6 +16,7 @@ export function createAction(type, payloadCreator = identity, metaCreator = null
     if(metaCreator) {
       action.meta = metaCreator(...args);
     }
+    return action;
   };
 }
 
