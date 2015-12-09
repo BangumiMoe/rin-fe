@@ -11,7 +11,9 @@ export default class TorrentList extends React.Component {
       <ul className="ui-torrentList">
         {data.data.map(item => (
           <li key={item._id}>
-            <Link to="/">{item.title}</Link>
+            <Link to="/">
+              <h3 className="ui-torrentList__title">{item.title}</h3>
+            </Link>
           </li>
         ))}
       </ul>

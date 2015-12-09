@@ -12,7 +12,9 @@ import actions from "../../actions";
 }))
 export default class Home extends React.Component {
   componentDidMount() {
-    this.props.dispatch(actions.torrent.loadList(1));
+    this.props.dispatch(actions.torrent.loadList({
+      page:1
+    }));
   }
   render() {
     return (

@@ -1,9 +1,24 @@
 .ui-torrentList {
   &:extend(.ui-splitList all);
 
+  background-color: @color-background-light;
+
+  .ui-shadow(2);
+
   a {
     display: block;
-    padding: ;
-    color: inherit;
+    padding: 1em 2em;
+    color: @color-accent;
+    transition: background-color 200ms;
+
+    &:hover {
+      background-color: @color-background-hover;
+    }
+  }
+
+  .ui-torrentList__title {
+    margin: 0;
+    font-size: 1em;
+    font-weight: normal;
   }
 }

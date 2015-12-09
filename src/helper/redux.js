@@ -5,19 +5,25 @@ function identity(obj) {
   return obj;
 }
 
-export function createAction(type, payloadCreator = identity, metaCreator = null) {
-  return function(...args) {
-    const action = {
-      type,
-      payload: payloadCreator(...args)
+export const ignore = {};
+
+export function createAction(type, payloadCreator = identity) {
+  return function(params) {
+    return (dispatch, getState) => {
+      const payload = payloadCreator(params, dispatch, getState);
+      if(payload === ignore) {
+        return;
+      }
+      const action = {
+        type,
+        payload,
+        meta: params
+      };
+      if(action.payload instanceof Error) {
+        action.error = true;
+      }
+      dispatch(action);
     };
-    if(action.payload instanceof Error) {
-      action.error = true;
-    }
-    if(metaCreator) {
-      action.meta = metaCreator(...args);
-    }
-    return action;
   };
 }
 

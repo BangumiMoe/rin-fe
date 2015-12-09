@@ -1,11 +1,11 @@
-import {createAction} from "../helper/redux";
+import {createAction, ignore} from "../helper/redux";
 
 import api from "../api";
 
-export const loadItem = createAction("torrent-item", id => (
-  api.torrent.item(id)
-), id => ({id}));
+export const loadItem = createAction("torrent-item", (params, dispatch, getState) => (
+  getState().torrent.item.has(params.id) ? ignore : api.torrent.item(params)
+));
 
-export const loadList = createAction("torrent-list", page => (
-  api.torrent.list(page)
-), page => ({page}));
+export const loadList = createAction("torrent-list", (params) => (
+  api.torrent.list(params)
+));
