@@ -1,0 +1,28 @@
+.ui-clearfix {
+  &::before,
+  &::after {
+    content: "";
+    display: table;
+  }
+
+  &::after {
+    clear: both;
+  }
+}
+
+.ui-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ui-splitList {
+  &:extend(.ui-list);
+
+  border-top: 1px solid @color-border;
+
+  & > li {
+    margin-top: -1px;
+    border-top: 1px solid @color-border;
+  }
+}

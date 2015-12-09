@@ -16,7 +16,10 @@ export default class Home extends React.Component {
   }
   render() {
     return (
-      <TorrentList data={this.props.torrent.list} />
+      <main className="ui-main">
+        <h1 className="ui-logo">Bangumi.moe</h1>
+        <TorrentList data={this.props.torrent.list} />
+      </main>
     );
   }
 };

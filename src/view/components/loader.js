@@ -6,7 +6,7 @@ export default class Loader extends React.Component {
       <div className="ui-loader"></div>
     );
   }
-}
+};
 
 Loader.wrap = function(Component) {
   return class LoaderWrapper extends React.Component {

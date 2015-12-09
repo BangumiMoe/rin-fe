@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router";
 
 import Loader from "./loader";
 
@@ -7,11 +8,13 @@ export default class TorrentList extends React.Component {
   render() {
     const data = this.props.data;
     return (
-      <ul>
+      <ul className="ui-torrentList">
         {data.data.map(item => (
-          <li key={item._id}>{item.title}</li>
+          <li key={item._id}>
+            <Link to="/">{item.title}</Link>
+          </li>
         ))}
       </ul>
     );
   }
-}
+};

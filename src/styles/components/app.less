@@ -1,0 +1,34 @@
+.ui-app {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
+  height: 100%;
+}
+
+.ui-navBar {
+  position: relative;
+  z-index: 100;
+  width: 4em;
+  background-color: @color-primary;
+
+  .ui-shadow(3);
+}
+
+.ui-userBar {
+  .ui-userBar__avatar {
+    width: 6em;
+    height: 6em;
+    margin: -1em;
+    background-color: @color-background-dark;
+    border-radius: 50%;
+
+    .ui-shadow(4);
+  }
+}
+
+.ui-main {
+  overflow-y: scroll;
+  flex: 1;
+  color: @color-text;
+  background-color: @color-background;
+}
