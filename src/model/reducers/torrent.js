@@ -8,16 +8,7 @@ const item = handleActions({
       data: action.payload,
       error: action.error
     })
-  ),
-  "torrent-list": {
-    complete: (state, action) => {
-      const map = {};
-      action.payload.torrents.forEach(item => {
-        map[item._id] = item;
-      });
-      return state.merge(map);
-    }
-  }
+  )
 }, Immutable.Map());
 
 const list = handleActions({
