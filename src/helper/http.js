@@ -14,10 +14,14 @@ function parseJSON(response) {
 }
 
 export function request(method, url, body = null) {
-  return fetch(url, {
-    credentials: "include",
-    body: body ? JSON.stringify(body) : null
-  }).then(checkStatus).then(parseJSON);
+  const options = {
+    method,
+    credentials: "include"
+  };
+  if(body) {
+    options.body = JSON.stringify(body);
+  }
+  return fetch(url, options).then(checkStatus).then(parseJSON);
 }
 
 export const get = request.bind(null, "GET");
