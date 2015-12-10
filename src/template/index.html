@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <title>{%=o.htmlWebpackPlugin.options.title %}</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400" />
     {% for(var css in o.htmlWebpackPlugin.files.css) { %}
       <link rel="stylesheet" href="{%=o.htmlWebpackPlugin.files.css[css] %}" />
     {% } %}

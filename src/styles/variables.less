@@ -1,9 +1,16 @@
 @color-primary: #3f51b5;
 @color-accent: #e91e63;
-@color-text: fade(#000, 80%);
+
+@color-text-base: #000;
+@color-text: fade(@color-text-base, 80%);
+@color-text-secondary: fade(@color-text-base, 60%);
+@color-text-hint: fade(@color-text-base, 40%);
+
 @color-background: #fafafa;
 @color-background-dark: #f0f0f0;
 @color-background-light: #fff;
 @color-background-hover: fade(#000, 5%);
+
 @color-border: #e0e0e0;
+
 @color-shadow: fade(#000, 20%);

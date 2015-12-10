@@ -12,7 +12,12 @@ export default class TorrentList extends React.Component {
         {data.data.map(item => (
           <li key={item._id}>
             <Link to="/">
-              <h3 className="ui-torrentList__title">{item.title}</h3>
+              <div className="ui-torrentList__main">
+                <h3 className="ui-torrentList__title">{item.title}</h3>
+                <div className="ui-torrentList__info">{item.publish_time}</div>
+              </div>
+              <div className="ui-torrentList__marker">{item.downloads}</div>
+              <div className="ui-torrentList__action"></div>
             </Link>
           </li>
         ))}

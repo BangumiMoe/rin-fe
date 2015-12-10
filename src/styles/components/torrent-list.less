@@ -6,7 +6,8 @@
   .ui-shadow(2);
 
   a {
-    display: block;
+    display: flex;
+    align-items: center;
     padding: 1em 2em;
     color: @color-accent;
     transition: background-color 200ms;
@@ -16,9 +17,31 @@
     }
   }
 
+  .ui-torrentList__main {
+    flex: 1;
+  }
+
+  .ui-torrentList__marker {
+    order: -1;
+    width: 2em;
+    margin-right: 2em;
+    text-align: center;
+    color: @color-text-secondary;
+  }
+
+  .ui-torrentList__action {
+    order: 1;
+    margin-right: 2em;
+  }
+
   .ui-torrentList__title {
     margin: 0;
     font-size: 1em;
     font-weight: normal;
+  }
+
+  .ui-torrentList__info {
+    font-size: 0.75em;
+    color: @color-text-hint;
   }
 }
