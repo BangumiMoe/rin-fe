@@ -10,6 +10,36 @@
   }
 }
 
+.ui-button {
+  padding: 0.5em 1em;
+  text-align: center;
+  border: none;
+  border-radius: 2px;
+  background-color: transparent;
+  transition: background-color 200ms;
+
+  &.ui-button--iconOnly {
+    width: 2.5em;
+    padding: 0.5em;
+    border-radius: 50%;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: @color-background-hover;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  .ui-icon {
+    font-size: 1.25em;
+    vertical-align: middle;
+  }
+}
+
 .ui-list {
   margin: 0;
   padding: 0;
@@ -24,5 +54,6 @@
   & > li {
     margin-top: -1px;
     border-top: 1px solid @color-border;
+    border-bottom: 1px solid @color-border;
   }
 }

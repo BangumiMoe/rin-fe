@@ -3,12 +3,10 @@
 
   background-color: @color-background-light;
 
-  .ui-shadow(2);
-
   a {
     display: flex;
     align-items: center;
-    padding: 1em 2em;
+    padding: 0.5em 1em;
     color: @color-accent;
     transition: background-color 200ms;
 
@@ -21,17 +19,25 @@
     flex: 1;
   }
 
-  .ui-torrentList__marker {
+  .ui-torrentList__category {
     order: -1;
-    width: 2em;
-    margin-right: 2em;
+    width: 6em;
+    margin-right: 1em;
+    font-size: 0.875em;
     text-align: center;
     color: @color-text-secondary;
   }
 
   .ui-torrentList__action {
     order: 1;
-    margin-right: 2em;
+    margin-left: 1em;
+    color: @color-text-secondary;
+    transition: visibility 200ms, opacity 200ms;
+  }
+
+  a:not(:hover) .ui-torrentList__action {
+    visibility: hidden;
+    opacity: 0;
   }
 
   .ui-torrentList__title {
