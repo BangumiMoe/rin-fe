@@ -1,4 +1,4 @@
 language: node_js
 node_js:
   - "stable"
-script: make
+script: "make clean build env=production"
