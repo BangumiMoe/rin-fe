@@ -12,7 +12,7 @@ import actions from "../../actions";
 }))
 export default class Home extends React.Component {
   componentDidMount() {
-    this.props.dispatch(actions.torrent.loadList({
+    this.props.dispatch(actions.torrent.list.load({
       page:1
     }));
   }
@@ -20,7 +20,7 @@ export default class Home extends React.Component {
     return (
       <main className="ui-main">
         <h1 className="ui-logo">Bangumi.moe</h1>
-        <TorrentList data={this.props.torrent.list} />
+        <TorrentList list={this.props.torrent.list} />
       </main>
     );
   }

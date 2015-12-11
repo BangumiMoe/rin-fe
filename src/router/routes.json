@@ -1,0 +1,4 @@
+{
+  "root": "/",
+  "torrent": "/torrent/:id"
+}

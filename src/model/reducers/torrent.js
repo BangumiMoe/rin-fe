@@ -3,7 +3,7 @@ import {combineReducers} from "redux";
 import {handleActions} from "../../helper/redux";
 
 const item = handleActions({
-  "torrent-item": (state, action) => (
+  "torrent-item-load": (state, action) => (
     state.set(action.meta.id, {
       data: action.payload,
       error: action.error
@@ -12,8 +12,8 @@ const item = handleActions({
 }, Immutable.Map());
 
 const list = handleActions({
-  "torrent-list": (state, action) => ({
-    data: action.payload.torrents,
+  "torrent-list-load": (state, action) => ({
+    data: action.payload,
     error: action.error
   })
 }, {

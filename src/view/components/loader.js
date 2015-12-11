@@ -8,19 +8,25 @@ export default class Loader extends React.Component {
   }
 };
 
-Loader.wrap = function(Component) {
-  return class LoaderWrapper extends React.Component {
-    render() {
-      const data = this.props.data;
-      if(data.data) {
-        return (
-          <Component {...this.props} />
-        );
-      } else {
-        return (
-          <Loader />
-        );
+Loader.wrap = function(list) {
+  return function(Component) {
+    return class LoaderWrapper extends React.Component {
+      render() {
+        const loaded = list.map(name => (
+          this.props[name].data
+        )).reduce((left, right) => (
+          left && right
+        ));
+        if(loaded) {
+          return (
+            <Component {...this.props} />
+          );
+        } else {
+          return (
+            <Loader />
+          );
+        }
       }
-    }
+    };
   };
 };

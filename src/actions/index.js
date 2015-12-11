@@ -1,4 +1,4 @@
-import * as torrent from "./torrent";
+import torrent from "./torrent";
 
 export default {
   torrent

@@ -4,18 +4,20 @@ import {Link} from "react-router";
 
 import Loader from "./loader";
 
-@Loader.wrap
+import * as router from "../../router";
+
+@Loader.wrap(["list"])
 @connect(state => ({
   language: state.language
 }))
 export default class TorrentList extends React.Component {
   render() {
-    const data = this.props.data;
+    const list = this.props.list;
     return (
       <ul className="ui-torrentList">
-        {data.data.map(item => (
+        {list.data.list.map(item => (
           <li key={item._id}>
-            <Link to="/">
+            <Link to={router.build("torrent", {id: item._id})}>
               <div className="ui-torrentList__main">
                 <h3 className="ui-torrentList__title">{item.title}</h3>
                 <div className="ui-torrentList__info">{item.publish_time}</div>
