@@ -1,0 +1,38 @@
+.ui-layer {
+  position: fixed;
+  z-index: 99;
+  left: 0;
+  right: 4em;
+  top: 0;
+  bottom: 0;
+  background-color: @color-background-light;
+  transition: opacity 500ms, clip-path 500ms;
+
+  &.ui-layer--fromFloatingButton {
+    .show() {
+      opacity: 1;
+      clip-path: circle(150% at right bottom);
+    }
+
+    .hide() {
+      opacity: 0;
+      clip-path: circle(0 at right bottom);
+    }
+
+    &.ui--enter {
+      .hide();
+    }
+
+    &.ui--enterActive {
+      .show();
+    }
+
+    &.ui--leave {
+      .show();
+    }
+
+    &.ui--leaveActive {
+      .hide();
+    }
+  }
+}

@@ -11,17 +11,76 @@
 }
 
 .ui-button {
+  display: inline-block;
   padding: 0.5em 1em;
   text-align: center;
   border: none;
   border-radius: 2px;
+  color: inherit;
   background-color: transparent;
-  transition: background-color 200ms;
+  transition: background-color 300ms;
+
+  &.ui-button--primary {
+    color: @color-accent;
+  }
 
   &.ui-button--iconOnly {
     width: 2.5em;
     padding: 0.5em;
     border-radius: 50%;
+  }
+
+  &.ui-button--raised {
+    transition: background-color 300ms, box-shadow 300ms;
+
+    .ui-shadow(2);
+
+    &:hover,
+    &:focus,
+    &:active {
+      .ui-shadow(3);
+    }
+
+    &.ui-button--primary {
+      color: #fff;
+      background-color: @color-accent;
+
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: @color-accent-active;
+      }
+    }
+  }
+
+  &.ui-button--floating {
+    &:extend(.ui-button.ui-button--raised all);
+    &:extend(.ui-button.ui-button--iconOnly);
+
+    font-size: 1.5em;
+
+    .ui-shadow(3);
+
+    &:hover,
+    &:focus,
+    &:active {
+      .ui-shadow(4);
+    }
+
+    .ui-icon {
+      font-size: 1em;
+    }
+  }
+
+  &.ui--disabled {
+    color: @color-text-disabled;
+
+    &:hover,
+    &:active,
+    &:focus {
+      cursor: default;
+      background-color: transparent;
+    }
   }
 
   &:hover,
@@ -44,16 +103,20 @@
   margin: 0;
   padding: 0;
   list-style: none;
-}
 
-.ui-splitList {
-  &:extend(.ui-list);
+  &.ui-list--inline {
+    & > li {
+      display: inline-block;
+    }
+  }
 
-  border-top: 1px solid @color-border;
-
-  & > li {
-    margin-top: -1px;
+  &.ui-list--split {
     border-top: 1px solid @color-border;
-    border-bottom: 1px solid @color-border;
+
+    & > li {
+      margin-top: -1px;
+      border-top: 1px solid @color-border;
+      border-bottom: 1px solid @color-border;
+    }
   }
 }

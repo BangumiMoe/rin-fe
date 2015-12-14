@@ -1,7 +1,20 @@
 .ui-app {
-  display: flex;
-  min-height: 100vh;
   padding-right: 4em;
+}
+
+.ui-floatingButton {
+  position: fixed;
+  z-index: 100;
+  right: 4em;
+  bottom: 0;
+  margin-right: 1.5em;
+  margin-bottom: 1.5em;
+
+  .ui-button.ui-button--floating {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
 }
 
 .ui-navBar {
@@ -29,7 +42,7 @@
 }
 
 .ui-main {
-  flex: 1;
+  min-height: 100vh;
   color: @color-text;
   background-color: @color-background;
 }

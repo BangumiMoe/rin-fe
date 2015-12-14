@@ -13,6 +13,7 @@ export default {
       "autobind-decorator",
       "immutable",
       "history",
+      "classnames",
       "react",
       "react-dom",
       "react-intl",

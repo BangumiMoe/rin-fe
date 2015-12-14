@@ -1,8 +1,10 @@
 import React from "react";
 import {connect} from "react-redux";
+import autobind from "autobind-decorator";
 
 import TorrentList from "./torrent-list";
 
+import * as router from "../../router";
 import actions from "../../actions";
 
 @connect(state => ({
@@ -10,7 +12,13 @@ import actions from "../../actions";
     list: state.torrent.list
   }
 }))
+@autobind
 export default class Home extends React.Component {
+  generatePageURL(page) {
+    return router.build("home", null, {
+      page: page
+    });
+  }
   componentDidMount() {
     this.props.dispatch(actions.torrent.list.load({
       page:1
@@ -20,7 +28,7 @@ export default class Home extends React.Component {
     return (
       <main className="ui-main">
         <h1 className="ui-logo">Bangumi.moe</h1>
-        <TorrentList list={this.props.torrent.list} />
+        <TorrentList list={this.props.torrent.list} generatePageURL={this.generatePageURL} />
       </main>
     );
   }

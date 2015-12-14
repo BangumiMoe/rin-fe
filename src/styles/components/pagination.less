@@ -1,1 +1,21 @@
-.ui-pagination {}
+.ui-pagination {
+  &:extend(.ui-list all);
+  &:extend(.ui-list.ui-list--inline all);
+
+  padding: 2em;
+  text-align: center;
+
+  .ui-pagination__previous,
+  .ui-pagination__next {
+    color: @color-text-secondary;
+  }
+
+  .ui-button {
+    vertical-align: middle;
+  }
+
+  .ui--active .ui-button {
+    color: #fff;
+    background-color: @color-active;
+  }
+}
