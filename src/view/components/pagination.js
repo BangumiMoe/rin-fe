@@ -20,16 +20,16 @@ export default class Pagination extends React.Component {
   generateURL(page) {
     return this.props.generateURL(page);
   }
-  generateItem(page, content) {
+  generateItem(page, content, props) {
     if(this.isValidPage(page)) {
       return (
-        <Button component={Link} to={this.generateURL(page)}>
+        <Button component={Link} to={this.generateURL(page)} {...props}>
           {content}
         </Button>
       );
     } else {
       return (
-        <Button component="a" disabled={true}>
+        <Button component="a" disabled={true} {...props}>
           {content}
         </Button>
       );
@@ -60,7 +60,9 @@ export default class Pagination extends React.Component {
     }
     items.push(
       <li key={current} className="ui--active">
-        {this.generateItem(current, current)}
+        {this.generateItem(current, current, {
+          showWave: false
+        })}
       </li>
     );
     for(let i = current + 1; i <= right; i++) {

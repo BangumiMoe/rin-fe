@@ -9,7 +9,8 @@ export default class Button extends React.Component {
     disabled: React.PropTypes.bool,
     primary: React.PropTypes.bool,
     floating: React.PropTypes.bool,
-    iconOnly: React.PropTypes.bool
+    iconOnly: React.PropTypes.bool,
+    showWave: React.PropTypes.bool
   };
   static defaultProps = {
     component: "button",
@@ -18,7 +19,8 @@ export default class Button extends React.Component {
     disabled: false,
     primary: false,
     floating: false,
-    iconOnly: false
+    iconOnly: false,
+    showWave: true
   };
   render() {
     const {
@@ -29,6 +31,7 @@ export default class Button extends React.Component {
       primary,
       floating,
       iconOnly,
+      showWave,
       className,
       children,
       ...restProps
@@ -41,8 +44,8 @@ export default class Button extends React.Component {
       }, {
         "ui--disabled": disabled
       }, {
-        "waves-effect": !disabled,
-        "waves-light": !disabled && primary
+        "waves-effect": !disabled && showWave,
+        "waves-light": !disabled && showWave && primary
       }, className),
       ...restProps
     };

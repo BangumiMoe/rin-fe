@@ -7,7 +7,6 @@
     height: 100px;
     margin: -50px;
     border-radius: 50%;
-    background-color: @color-waves-dark;
     opacity: 0;
     transform: scale(0) translate(0, 0);
     pointer-events: none;
@@ -16,5 +15,9 @@
 
   &.waves-light .waves-ripple {
     background-color: @color-waves-light;
+  }
+
+  &:not(.waves-light) .waves-ripple {
+    background-color: @color-waves-dark;
   }
 }
