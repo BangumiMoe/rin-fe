@@ -2,6 +2,8 @@ import React from "react";
 import {Link} from "react-router";
 import classNames from "classnames";
 
+import Button from "./button";
+
 export default class Pagination extends React.Component {
   static propTypes = {
     current: React.PropTypes.number.isRequired,
@@ -21,15 +23,15 @@ export default class Pagination extends React.Component {
   generateItem(page, content) {
     if(this.isValidPage(page)) {
       return (
-        <Link to={this.generateURL(page)} className="ui-button">
+        <Button component={Link} to={this.generateURL(page)}>
           {content}
-        </Link>
+        </Button>
       );
     } else {
       return (
-        <a href="javascript:void(0);" className="ui-button ui--disabled">
+        <Button component="a" disabled={true}>
           {content}
-        </a>
+        </Button>
       );
     }
   }

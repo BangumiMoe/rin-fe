@@ -1,6 +1,9 @@
 import React from "react";
 import {render} from "react-dom";
 
+import Waves from "node-waves";
+Waves.init();
+
 import {Provider} from "react-redux";
 import Intl from "./components/intl";
 import router from "./router";

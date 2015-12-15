@@ -2,6 +2,7 @@ import React from "react";
 import {connect} from "react-redux";
 import {Link} from "react-router";
 
+import Button from "./button";
 import Loader from "./loader";
 import Pagination from "./pagination";
 
@@ -19,16 +20,16 @@ export default class TorrentList extends React.Component {
         <ul className="ui-torrentList">
           {list.data.list.map(item => (
             <li key={item._id}>
-              <Link to={router.build("torrent", {id: item._id})}>
+              <Link to={router.build("torrent", {id: item._id})} className="waves-effect">
                 <div className="ui-torrentList__main">
                   <h3 className="ui-torrentList__title">{item.title}</h3>
                   <div className="ui-torrentList__info">{item.publish_time}</div>
                 </div>
                 <div className="ui-torrentList__category">{item.category_tag.locale[this.props.language]}</div>
                 <div className="ui-torrentList__action">
-                  <button type="button" className="ui-button ui-button--iconOnly">
+                  <Button iconOnly={true}>
                     <span className="ui-icon">file_download</span>
-                  </button>
+                  </Button>
                 </div>
               </Link>
             </li>

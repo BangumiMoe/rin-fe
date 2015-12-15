@@ -1,6 +1,7 @@
 import React from "react";
 import autobind from "autobind-decorator";
 
+import Button from "./button";
 import Search from "./search";
 
 @autobind
@@ -26,9 +27,9 @@ export default class App extends React.Component {
         </header>
         {this.props.children}
         <div className="ui-floatingButton">
-          <button type="button" className="ui-button ui-button--floating ui-button--primary" onClick={this.showSearch}>
+          <Button primary={true} floating={true} onClick={this.showSearch}>
             <span className="ui-icon">search</span>
-          </button>
+          </Button>
         </div>
         <Search show={this.state.showSearch} />
       </div>
