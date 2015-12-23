@@ -2,7 +2,12 @@ PATH := ./node_modules/.bin:$(PATH)
 
 env := development
 
-default: clean build
+default: npm clean build
+
+node_modules: package.json
+	npm install
+
+npm: node_modules
 
 clean:
 	rm -rf ./webpack.dist
@@ -20,4 +25,4 @@ build: webpack
 serve: webpack
 	webpack-dev-server --config ./webpack.dist/$(env).config.js --progress --colors
 
-.PHONY: clean webpack build serve
+.PHONY: npm clean webpack build serve
