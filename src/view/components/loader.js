@@ -3,7 +3,11 @@ import React from "react";
 export default class Loader extends React.Component {
   render() {
     return (
-      <div className="ui-loader"></div>
+      <div className="ui-loader">
+        <div className="ui-loader__dot"></div>
+        <div className="ui-loader__dot"></div>
+        <div className="ui-loader__dot"></div>
+      </div>
     );
   }
 };
