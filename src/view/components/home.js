@@ -19,10 +19,21 @@ export default class Home extends React.Component {
       page: page
     });
   }
+  getPage(props) {
+    return Number((props || this.props).location.query.page) || 1;
+  }
   componentDidMount() {
     this.props.dispatch(actions.torrent.list.load({
-      page:1
+      page: this.getPage()
     }));
+  }
+  componentWillReceiveProps(nextProps) {
+    if(this.getPage() != this.getPage(nextProps)) {
+      this.props.dispatch(actions.torrent.list.clear());
+      this.props.dispatch(actions.torrent.list.load({
+        page: this.getPage(nextProps)
+      }));
+    }
   }
   render() {
     return (

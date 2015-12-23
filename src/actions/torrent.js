@@ -17,6 +17,7 @@ export default {
           total: data.page_count
         }
       }))
-    ))
+    )),
+    clear: createAction("torrent-list-clear")
   }
 };

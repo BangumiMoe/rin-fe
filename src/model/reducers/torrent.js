@@ -15,6 +15,10 @@ const list = handleActions({
   "torrent-list-load": (state, action) => ({
     data: action.payload,
     error: action.error
+  }),
+  "torrent-list-clear": () => ({
+    data: null,
+    error: false
   })
 }, {
   data: null,
