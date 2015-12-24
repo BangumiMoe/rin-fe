@@ -24,15 +24,23 @@ Loader.wrap = function(list) {
           return "content";
         }
       }
-      render() {
-        const loaded = list.map(name => (
-          this.props[name].data
+      isLoaded(props) {
+        return list.map(name => (
+          (props || this.props)[name].data
         )).reduce((left, right) => (
           left && right
         ));
+      }
+      componentDidUpdate(prevProps) {
+        if(this.isLoaded() != this.isLoaded(prevProps)) {
+          this.refs.container.scrollIntoView();
+        }
+      }
+      render() {
+        const loaded = this.isLoaded();
         return (
-          <div className="ui-transitionGroup">
-            <TransitionGroup transitionEnterTimeout={300} transitionLeaveTimeout={300}>
+          <div className="ui-transitionGroup" ref="container">
+            <TransitionGroup>
               {loaded ? (
                 <Component {...this.props} key={this.getKey()} />
               ) : (
