@@ -31,11 +31,6 @@ Loader.wrap = function(list) {
           left && right
         ));
       }
-      componentDidUpdate(prevProps) {
-        if(this.isLoaded() != this.isLoaded(prevProps)) {
-          this.refs.container.scrollIntoView();
-        }
-      }
       render() {
         const loaded = this.isLoaded();
         return (
