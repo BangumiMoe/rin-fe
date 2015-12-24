@@ -22,6 +22,9 @@ export default class Home extends React.Component {
   getPage(props) {
     return Number((props || this.props).location.query.page) || 1;
   }
+  getKey() {
+    return `content-${this.getPage()}`;
+  }
   componentDidMount() {
     this.props.dispatch(actions.torrent.list.load({
       page: this.getPage()
@@ -39,7 +42,7 @@ export default class Home extends React.Component {
     return (
       <main className="ui-main">
         <h1 className="ui-logo">Bangumi.moe</h1>
-        <TorrentList list={this.props.torrent.list} generatePageURL={this.generatePageURL} />
+        <TorrentList list={this.props.torrent.list} generatePageURL={this.generatePageURL} getKey={this.getKey} />
       </main>
     );
   }

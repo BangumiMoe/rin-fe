@@ -17,6 +17,13 @@ export default class Loader extends React.Component {
 Loader.wrap = function(list) {
   return function(Component) {
     return class LoaderWrapper extends React.Component {
+      getKey() {
+        if(this.props.getKey) {
+          return this.props.getKey();
+        } else {
+          return "content";
+        }
+      }
       render() {
         const loaded = list.map(name => (
           this.props[name].data
@@ -27,7 +34,7 @@ Loader.wrap = function(list) {
           <div className="ui-transitionGroup">
             <TransitionGroup transitionEnterTimeout={300} transitionLeaveTimeout={300}>
               {loaded ? (
-                <Component {...this.props} />
+                <Component {...this.props} key={this.getKey()} />
               ) : (
                 <Loader key="loader" />
               )}
