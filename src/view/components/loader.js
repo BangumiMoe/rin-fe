@@ -1,5 +1,7 @@
 import React from "react";
 
+import TransitionGroup from "./transition-group";
+
 export default class Loader extends React.Component {
   render() {
     return (
@@ -21,15 +23,17 @@ Loader.wrap = function(list) {
         )).reduce((left, right) => (
           left && right
         ));
-        if(loaded) {
-          return (
-            <Component {...this.props} />
-          );
-        } else {
-          return (
-            <Loader />
-          );
-        }
+        return (
+          <div className="ui-transitionGroup">
+            <TransitionGroup transitionEnterTimeout={300} transitionLeaveTimeout={300}>
+              {loaded ? (
+                <Component {...this.props} />
+              ) : (
+                <Loader key="loader" />
+              )}
+            </TransitionGroup>
+          </div>
+        );
       }
     };
   };

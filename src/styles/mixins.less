@@ -13,3 +13,21 @@
 .ui-shadow(4) {
   box-shadow: 0 0 8px @color-shadow, 0 8px 16px @color-shadow;
 }
+
+.ui-transition(@hide, @show) {
+  &.ui--enter {
+    @hide();
+  }
+
+  &.ui--enterActive {
+    @show();
+  }
+
+  &.ui--leave {
+    @show();
+  }
+
+  &.ui--leaveActive {
+    @hide();
+  }
+}

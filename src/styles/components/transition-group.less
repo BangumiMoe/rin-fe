@@ -1,0 +1,21 @@
+@import "../mixins";
+@import "./base";
+
+.ui-transitionGroup {
+  & > div {
+    &:extend(.ui-clearfix all);
+
+    & > * {
+      float: left;
+      width: 100%;
+      margin-right: -100%;
+      transition: opacity 300ms;
+
+      .ui-transition({
+        opacity: 0;
+      }, {
+        opacity: 1;
+      });
+    }
+  }
+}
