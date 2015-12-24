@@ -23,7 +23,9 @@ export default class Home extends React.Component {
     return Number((props || this.props).location.query.page) || 1;
   }
   getKey() {
-    return `content-${this.getPage()}`;
+    const list = this.props.torrent.list;
+    const page = list.data ? list.data.page.current : 0;
+    return `content-${page}`;
   }
   componentDidMount() {
     this.props.dispatch(actions.torrent.list.load({
