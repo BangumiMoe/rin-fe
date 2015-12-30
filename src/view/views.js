@@ -1,6 +1,5 @@
 import App from "./components/app";
 import Home from "./components/home";
+import Torrent from "./components/torrent";
 
-export default {
-  App, Home
-};
+export {App, Home, Torrent};

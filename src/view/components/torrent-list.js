@@ -2,7 +2,7 @@ import React from "react";
 import {connect} from "react-redux";
 import {Link} from "react-router";
 
-import {FormattedRelative} from "react-intl";
+import {injectIntl, FormattedRelative} from "react-intl";
 
 import Button from "./button";
 import Loader from "./loader";
@@ -14,8 +14,10 @@ import * as router from "../../router";
 @connect(state => ({
   language: state.language
 }))
+@injectIntl
 export default class TorrentList extends React.Component {
   render() {
+    const {formatDate, formatTime} = this.props.intl;
     const list = this.props.list;
     return (
       <div>
@@ -27,7 +29,7 @@ export default class TorrentList extends React.Component {
                   <h3 className="ui-torrentList__title">{item.title}</h3>
                   <div className="ui-torrentList__info">
                     <div className="ui-torrentList__info__time">
-                      <FormattedRelative value={new Date(item.publish_time)} />
+                      <FormattedRelative value={item.publish_time} />
                     </div>
                     <div className="ui-torrentList__info__user">{item.uploader.username}</div>
                     {item.team ? (

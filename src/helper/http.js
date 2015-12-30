@@ -1,3 +1,5 @@
+import * as json from "./json";
+
 function checkStatus(response) {
   if(response.status >= 200 && response.status < 300) {
     return response;
@@ -10,7 +12,9 @@ function checkStatus(response) {
 }
 
 function parseJSON(response) {
-  return response.json();
+  return response.text().then(text => (
+    json.parse(text)
+  ));
 }
 
 export function request(method, url, body = null) {
@@ -19,7 +23,7 @@ export function request(method, url, body = null) {
     credentials: "include"
   };
   if(body) {
-    options.body = JSON.stringify(body);
+    options.body = json.stringify(body);
   }
   return fetch(url, options).then(checkStatus).then(parseJSON);
 }

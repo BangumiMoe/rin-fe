@@ -2,6 +2,10 @@ import React from "react";
 
 import TransitionGroup from "./transition-group";
 
+function getDisplayName(Component) {
+  return Component.displayName || Component.name || "Component";
+}
+
 export default class Loader extends React.Component {
   render() {
     return (
@@ -17,6 +21,7 @@ export default class Loader extends React.Component {
 Loader.wrap = function(list) {
   return function(Component) {
     return class LoaderWrapper extends React.Component {
+      static displayName = `LoaderWrapper(${getDisplayName(Component)})`;
       getKey() {
         if(this.props.getKey) {
           return this.props.getKey();
@@ -34,7 +39,7 @@ Loader.wrap = function(list) {
       render() {
         const loaded = this.isLoaded();
         return (
-          <div className="ui-transitionGroup" ref="container">
+          <div className="ui-transitionGroup">
             <TransitionGroup>
               {loaded ? (
                 <Component {...this.props} key={this.getKey()} />
