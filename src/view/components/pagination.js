@@ -29,7 +29,7 @@ export default class Pagination extends React.Component {
       );
     } else {
       return (
-        <Button component="a" disabled={true} {...props}>
+        <Button component="span" disabled={true} {...props}>
           {content}
         </Button>
       );
