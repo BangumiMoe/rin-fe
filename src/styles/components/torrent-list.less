@@ -55,5 +55,19 @@
   .ui-torrentList__info {
     font-size: 0.75em;
     color: @color-text-hint;
+
+    > * {
+      display: inline-block;
+
+      &:not(:last-child)::after {
+        content: "/";
+        margin: 0 0.5em;
+        color: @color-border;
+      }
+    }
+
+    .ui-torrentList__info__team::before {
+      content: "@";
+    }
   }
 }
