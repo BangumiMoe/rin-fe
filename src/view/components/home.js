@@ -8,9 +8,7 @@ import * as router from "../../router";
 import actions from "../../actions";
 
 @connect(state => ({
-  torrent: {
-    list: state.torrent.list
-  }
+  list: state.torrent.list
 }))
 @autobind
 export default class Home extends React.Component {
@@ -23,7 +21,7 @@ export default class Home extends React.Component {
     return Number((props || this.props).location.query.page) || 1;
   }
   getKey() {
-    const list = this.props.torrent.list;
+    const list = this.props.list;
     const page = list.data ? list.data.page.current : 0;
     return `content-${page}`;
   }
@@ -40,11 +38,14 @@ export default class Home extends React.Component {
       }));
     }
   }
+  componentWillUnmount() {
+    this.props.dispatch(actions.torrent.list.clear());
+  }
   render() {
     return (
       <main className="ui-main">
         <h1 className="ui-logo">Bangumi.moe</h1>
-        <TorrentList list={this.props.torrent.list} generatePageURL={this.generatePageURL} getKey={this.getKey} />
+        <TorrentList data={this.props.list} generatePageURL={this.generatePageURL} getKey={this.getKey} />
       </main>
     );
   }

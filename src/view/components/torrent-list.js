@@ -10,7 +10,7 @@ import Pagination from "./pagination";
 
 import * as router from "../../router";
 
-@Loader.wrap(["list"])
+@Loader.wrap(["data"])
 @connect(state => ({
   language: state.language
 }))
@@ -18,7 +18,7 @@ import * as router from "../../router";
 export default class TorrentList extends React.Component {
   render() {
     const {formatDate} = this.props.intl;
-    const list = this.props.list;
+    const list = this.props.data;
     return (
       <div>
         <ul className="ui-torrentList">

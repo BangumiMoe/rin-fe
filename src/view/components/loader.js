@@ -31,7 +31,7 @@ Loader.wrap = function(list) {
       }
       isLoaded(props) {
         return list.map(name => (
-          (props || this.props)[name].data
+          ((props || this.props)[name] || {}).data
         )).reduce((left, right) => (
           left && right
         ));
