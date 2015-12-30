@@ -17,7 +17,7 @@ import * as router from "../../router";
 @injectIntl
 export default class TorrentList extends React.Component {
   render() {
-    const {formatDate, formatTime} = this.props.intl;
+    const {formatDate} = this.props.intl;
     const list = this.props.list;
     return (
       <div>
@@ -28,7 +28,7 @@ export default class TorrentList extends React.Component {
                 <div className="ui-torrentList__main">
                   <h3 className="ui-torrentList__title">{item.title}</h3>
                   <div className="ui-torrentList__info">
-                    <div className="ui-torrentList__info__time">
+                    <div className="ui-torrentList__info__time" title={formatDate(item.publish_time, {format: "default"})}>
                       <FormattedRelative value={item.publish_time} />
                     </div>
                     <div className="ui-torrentList__info__user">{item.uploader.username}</div>
