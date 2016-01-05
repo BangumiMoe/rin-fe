@@ -28,6 +28,7 @@
   z-index: 100;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   width: 4em;
   margin: -2em 0;
   padding: 2em 0;
@@ -41,6 +42,18 @@
     width: 4em;
     height: 4em;
     background-color: @color-background-dark;
+  }
+}
+
+.ui-actionBar {
+  color: #fff;
+
+  .ui-button {
+    margin: 0.75em;
+
+    .ui-icon {
+      font-size: 1.5em;
+    }
   }
 }
 

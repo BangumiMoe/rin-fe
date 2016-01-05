@@ -1,8 +1,9 @@
 import React from "react";
+import {render, unmountComponentAtNode} from "react-dom";
 
 export default class Portal extends React.Component {
   update() {
-    React.render(React.Children.only(this.props.children), this.target);
+    render(React.Children.only(this.props.children), this.target);
   }
   componentDidMount() {
     let container = document.querySelector("#portal");
@@ -20,7 +21,7 @@ export default class Portal extends React.Component {
     this.update();
   }
   componentWillUnmount() {
-    React.unmountComponentAtNode(this.target);
+    unmountComponentAtNode(this.target);
     const container = document.querySelector("#portal");
     container.removeChild(this.target);
   }

@@ -1,0 +1,27 @@
+@import "../variables";
+@import "../mixins";
+
+.ui-dialog {
+  overflow: hidden;
+  min-width: 16em;
+  border-radius: @radius;
+  background-color: @color-background-light;
+
+  .ui-shadow(4);
+
+  .ui-dialog__header {
+    margin: 1.5em;
+  }
+
+  .ui-dialog__title {
+    margin: 0;
+    font-size: 1.5em;
+    font-weight: normal;
+    color: @color-text;
+  }
+
+  .ui-dialog__content {
+    margin: 1.5em;
+    color: @color-text-secondary;
+  }
+}
