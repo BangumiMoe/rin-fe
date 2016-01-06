@@ -25,4 +25,4 @@ build: webpack
 serve: webpack
 	webpack-dev-server --config ./webpack.dist/$(env).config.js --progress --colors
 
-.PHONY: npm clean webpack build serve
+.PHONY: default npm clean webpack build serve
