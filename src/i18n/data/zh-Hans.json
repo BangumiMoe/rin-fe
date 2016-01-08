@@ -5,7 +5,7 @@
     "date": {
       "default": {
         "year": "numeric",
-        "month": "long",
+        "month": "numeric",
         "day": "numeric",
         "hour": "numeric",
         "minute": "2-digit",
