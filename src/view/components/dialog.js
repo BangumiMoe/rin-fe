@@ -8,13 +8,19 @@ import TransitionGroup from "./transition-group";
 export default class Dialog extends React.Component {
   static propTypes = {
     show: React.PropTypes.bool.isRequired,
+    modal: React.PropTypes.bool,
     title: React.PropTypes.string,
     onClose: React.PropTypes.func
   };
+  static defaultProps = {
+    modal: false
+  };
   tryClosingDialog(event) {
-    if(event.target === this.refs.overlay) {
-      if(this.props.onClose) {
-        this.props.onClose();
+    if(!this.props.modal) {
+      if(event.target === this.refs.overlay) {
+        if(this.props.onClose) {
+          this.props.onClose();
+        }
       }
     }
   }

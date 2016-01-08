@@ -1,0 +1,16 @@
+{
+  "name": "简体中文",
+  "api": "zh_cn",
+  "formats": {
+    "date": {
+      "default": {
+        "year": "numeric",
+        "month": "long",
+        "day": "numeric",
+        "hour": "numeric",
+        "minute": "2-digit",
+        "second": "2-digit"
+      }
+    }
+  }
+}

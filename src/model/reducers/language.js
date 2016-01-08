@@ -1,5 +1,7 @@
-import {handleAction} from "../../helper/redux";
+import {handleActions} from "../../helper/redux";
 
-export default handleAction("language", (state, action) => (
-  action.payload
-), "en");
+export default handleActions({
+  "language-set": (state, action) => (
+    action.payload
+  )
+}, "en");

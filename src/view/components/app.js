@@ -3,7 +3,7 @@ import autobind from "autobind-decorator";
 
 import TransitionGroup from "./transition-group";
 import Button from "./button";
-import Dialog from "./dialog";
+import LanguageDialog from "./language-dialog";
 import Search from "./search";
 
 @autobind
@@ -55,9 +55,7 @@ export default class App extends React.Component {
             <span className="ui-icon">search</span>
           </Button>
         </div>
-        <Dialog title="Language" show={this.state.showLanguageDialog} onClose={this.closeLanguageDialog}>
-          content
-        </Dialog>
+        <LanguageDialog show={this.state.showLanguageDialog} onClose={this.closeLanguageDialog} />
         <Search show={this.state.showSearch} />
       </div>
     );

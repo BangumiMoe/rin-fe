@@ -1,4 +1,6 @@
 {
+  "name": "English",
+  "api": "en",
   "formats": {
     "date": {
       "default": {

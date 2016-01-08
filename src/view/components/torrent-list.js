@@ -8,6 +8,7 @@ import Button from "./button";
 import Loader from "./loader";
 import Pagination from "./pagination";
 
+import i18n from "../../i18n";
 import * as router from "../../router";
 
 @Loader.wrap(["data"])
@@ -37,7 +38,9 @@ export default class TorrentList extends React.Component {
                     ) : null}
                   </div>
                 </div>
-                <div className="ui-torrentList__category">{item.category_tag.locale[this.props.language]}</div>
+                <div className="ui-torrentList__category">
+                  {item.category_tag.locale[i18n[this.props.language].api] || item.category_tag.name}
+                </div>
                 <div className="ui-torrentList__action">
                   <Button iconOnly={true}>
                     <span className="ui-icon">file_download</span>
